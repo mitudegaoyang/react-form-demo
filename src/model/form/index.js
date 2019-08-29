@@ -23,6 +23,7 @@ class Form extends React.Component {
   // change公司性质
   changeCompanyType (list, item) {
     this.props.selectCompany(item)
+    this.props.changeCompany('')
   }
   // change省份
   changeProvinces (list, item) {
@@ -88,16 +89,18 @@ class Form extends React.Component {
           <div className="label">公寓名称{this.props.count.apartment}</div>
           <div className="content">
             <Input
+              value={this.props.count.apartment}
               type={'text'}
               placeholder={'输入公寓名称'}
               handleChange={this.changeApartment}>
             </Input>
           </div>
         </div>
-        <div className="formItem">
+        <div className="formItem" style={{display: (this.props.count.companyType === '1') ? 'block' : 'none'}}>
           <div className="label">公司全称{this.props.count.company}</div>
           <div className="content">
             <Input
+              value={this.props.count.company}
               type={'text'}
               placeholder={'输入公司全称'}
               handleChange={this.changeCompany}>
@@ -108,6 +111,7 @@ class Form extends React.Component {
           <div className="label">联系人姓名{this.props.count.userName}</div>
           <div className="content">
             <Input
+              value={this.props.count.userName}
               type={'text'}
               placeholder={'输入联系人姓名'}
               handleChange={this.changeUserName}>
@@ -118,6 +122,7 @@ class Form extends React.Component {
           <div className="label">*注册手机{this.props.count.phone}</div>
           <div className="content">
             <Input
+              value={this.props.count.phone}
               type={'text'}
               placeholder={'输入注册手机'}
               handleChange={this.changePhone}>
@@ -128,6 +133,7 @@ class Form extends React.Component {
           <div className="label">运营房源量{this.props.count.number}</div>
           <div className="content">
             <Input
+              value={this.props.count.number}
               type={'text'}
               placeholder={'输入运营房源量'}
               handleChange={this.changeNumber}>

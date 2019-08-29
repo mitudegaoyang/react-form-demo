@@ -57,7 +57,8 @@ react-form-demo
 │   │   └── Select          # 下拉框组件
 │   ├── model               # 模块目录
 │   │   └── form            # 表单模块
-│   └── index.js            # 项目的核心文件
+│   ├── index.js            # 项目的核心文件
+│   └── models.js           # rematch状态存储
 ├── .xxxx                   # 各类配置文件(包括语法配置，git配置等)
 ├── index.html              # 首页入口文件(可添加一些meta信息或统计代码)
 ├── package.json            # 项目配置文件

@@ -3,6 +3,11 @@ export const count = {
     companyType: '0',
     provincesType: '000',
     cityType: '001',
+    apartment: '',
+    company: '',
+    userName: '',
+    phone: '',
+    number: '',
     companyList: [
       {
         id: 0,
@@ -97,6 +102,36 @@ export const count = {
       return {
         ...state,
         cityList: payload
+      }
+    },
+    changeApartment: (state, payload) => {
+      return {
+        ...state,
+        apartment: payload
+      }
+    },
+    changeCompany: (state, payload) => {
+      return {
+        ...state,
+        company: payload
+      }
+    },
+    changeUserName: (state, payload) => {
+      return {
+        ...state,
+        userName: payload
+      }
+    },
+    changePhone: (state, payload) => {
+      return {
+        ...state,
+        phone: payload
+      }
+    },
+    changeNumber: (state, payload) => {
+      return {
+        ...state,
+        number: payload
       }
     },
     message: (state, payload) => {

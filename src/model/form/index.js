@@ -10,13 +10,18 @@ class Form extends React.Component {
   constructor(props){
     super(props);
 
-    this.changeCompany = this.changeCompany.bind(this);
+    this.changeCompanyType = this.changeCompanyType.bind(this);
     this.changeProvinces = this.changeProvinces.bind(this);
     this.changeCity = this.changeCity.bind(this);
+    this.changeApartment = this.changeApartment.bind(this);
+    this.changeCompany = this.changeCompany.bind(this);
+    this.changeUserName = this.changeUserName.bind(this);
+    this.changePhone = this.changePhone.bind(this);
+    this.changeNumber = this.changeNumber.bind(this);
   }
 
   // change公司性质
-  changeCompany (list, item) {
+  changeCompanyType (list, item) {
     this.props.selectCompany(item)
   }
   // change省份
@@ -30,16 +35,36 @@ class Form extends React.Component {
   changeCity (list, item) {
     this.props.selectCity(item)
   }
+  // change公寓名称
+  changeApartment (item) {
+    this.props.changeApartment(item)
+  }
+  // change公司全称
+  changeCompany (item) {
+    this.props.changeCompany(item)
+  }
+  // change联系人姓名
+  changeUserName (item) {
+    this.props.changeUserName(item)
+  }
+  // change注册手机
+  changePhone (item) {
+    this.props.changePhone(item)
+  }
+  // change运营房源量
+  changeNumber (item) {
+    this.props.changeNumber(item)
+  }
 
   render() {
     return (
-      <div className="App">
+      <div className="form">
         <div className="formItem">
           <div className="label">*公司性质{this.props.count.companyType}</div>
           <div className="content">
             <Select
               value={this.props.count.companyType}
-              handleChange={this.changeCompany}
+              handleChange={this.changeCompanyType}
               list={this.props.count.companyList}>
             </Select>
           </div>
@@ -60,33 +85,53 @@ class Form extends React.Component {
           </div>
         </div>
         <div className="formItem">
-          <div className="label">公寓名称</div>
+          <div className="label">公寓名称{this.props.count.apartment}</div>
           <div className="content">
-            <Input></Input>
+            <Input
+              type={'text'}
+              placeholder={'输入公寓名称'}
+              handleChange={this.changeApartment}>
+            </Input>
           </div>
         </div>
         <div className="formItem">
-          <div className="label">公司全称</div>
+          <div className="label">公司全称{this.props.count.company}</div>
           <div className="content">
-            <input type="text" placeholder="输入公司全称"/>
+            <Input
+              type={'text'}
+              placeholder={'输入公司全称'}
+              handleChange={this.changeCompany}>
+            </Input>
           </div>
         </div>
         <div className="formItem">
-          <div className="label">联系人姓名</div>
+          <div className="label">联系人姓名{this.props.count.userName}</div>
           <div className="content">
-            <input type="text" placeholder="输入联系人姓名"/>
+            <Input
+              type={'text'}
+              placeholder={'输入联系人姓名'}
+              handleChange={this.changeUserName}>
+            </Input>
           </div>
         </div>
         <div className="formItem">
-          <div className="label">*注册手机</div>
+          <div className="label">*注册手机{this.props.count.phone}</div>
           <div className="content">
-            <input type="text" placeholder="注册手机"/>
+            <Input
+              type={'text'}
+              placeholder={'输入注册手机'}
+              handleChange={this.changePhone}>
+            </Input>
           </div>
         </div>
         <div className="formItem">
-          <div className="label">运营房源量</div>
+          <div className="label">运营房源量{this.props.count.number}</div>
           <div className="content">
-            <input type="text" placeholder="运营房源量"/>
+            <Input
+              type={'text'}
+              placeholder={'输入运营房源量'}
+              handleChange={this.changeNumber}>
+            </Input>
           </div>
         </div>
       </div>
@@ -107,6 +152,11 @@ const mapDispatch = dispatch => ({
   selectProvinces: dispatch.count.selectProvinces,
   selectCity: dispatch.count.selectCity,
   changeProvinces: dispatch.count.changeProvinces,
+  changeApartment: dispatch.count.changeApartment,
+  changeCompany: dispatch.count.changeCompany,
+  changeUserName: dispatch.count.changeUserName,
+  changePhone: dispatch.count.changePhone,
+  changeNumber: dispatch.count.changeNumber,
   submit: dispatch.count.submit,
 })
 

@@ -1,9 +1,17 @@
 import React from 'react';
 
 class Input extends React.Component {
+
+  handleChange = e => {
+    this.props.handleChange(e.target.value)
+  };
+
   render() {
     return (
-      <input type="text" placeholder="输入公寓名称"/>
+      <input
+        onChange={this.handleChange}
+        type={this.props.type}
+        placeholder={this.props.placeholder}/>
     )
   }
 }

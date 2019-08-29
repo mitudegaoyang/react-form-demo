@@ -3,7 +3,6 @@ import React from 'react';
 class Select extends React.Component {
 
   handleChange = e => {
-    this.setState({value: e.target.value})
     if (this.props.handleChange) {
       this.props.handleChange(this.props.list ,e.target.value)
     }

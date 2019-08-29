@@ -1,68 +1,76 @@
-This project was bootstrapped with [Create React Index](https://github.com/facebook/create-react-app).
+## react-form-demo
 
-## Available Scripts
+作者：高天阳
 
-In the project directory, you can run:
+```
+更改历史
 
-### `npm start`
+* 2019-8-29	高天阳	编写README文档
+```
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### 概述
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+本项目为react的form表单demo，用到了react、react-dom、react-redux、rematch、lodash等技术框架
 
-### `npm test`
+### 使用
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+#### 安装
 
-### `npm run build`
+```
+# 克隆项目
+$ git clone git@github.com:mitudegaoyang/react-form-demo.git
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# 安装依赖
+$ npm install
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+####  常用指令
 
-### `npm run eject`
+```
+# 本地预览
+$ npm start
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+# 测试项目
+$ npm test
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+# 打包项目
+$ npm run build
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+# 测试项目
+$ npm run eject
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### 开发
 
-## Learn More
+#### 目录结构
 
-You can learn more in the [Create React Index documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```
+react-form-demo
+├── public                  # 项目入口
+├── dist                    # 打包文件
+├── node_modules            # 插件资源
+├── src                     # 开发目录
+│   ├── components          # 组件目录
+│   │   ├── Input           # 输入框组件
+│   │   ├── Message         # 消息弹框组件
+│   │   └── Select          # 下拉框组件
+│   ├── model               # 模块目录
+│   │   └── form            # 表单模块
+│   └── index.js            # 项目的核心文件
+├── .xxxx                   # 各类配置文件(包括语法配置，git配置等)
+├── index.html              # 首页入口文件(可添加一些meta信息或统计代码)
+├── package.json            # 项目配置文件
+├── package-lock.json       # 项目配置版本号文件
+└── README.md               # 项目说明文档(markdown格式)
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+#### 主要实现功能
 
-### Code Splitting
+* 下拉框联动选择
+* 仿v-if、v-show实现联动显隐
+* ...
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+### 参考资料
 
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web Index
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+* [React Select默认值选中问题](https://www.jianshu.com/p/71872a13e7d9)

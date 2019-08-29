@@ -160,7 +160,9 @@ export const count = {
         setTimeout(resolve, 1000)
       })
       dispatch.count.message('保存成功')
-      console.log('保存成功')
+      setTimeout(function () {
+        dispatch.count.message('')
+      }, 2000)
     },
   })
 }

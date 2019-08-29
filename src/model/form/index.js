@@ -4,6 +4,7 @@ import './index.css'
 import { connect } from 'react-redux'
 import Select from '../../components/Select/';
 import Input from '../../components/Input';
+import Message from '../../components/Message';
 
 class Form extends React.Component {
 
@@ -72,8 +73,10 @@ class Form extends React.Component {
   }
 
   render() {
+    let isShow = this.props.count.message !== ''
     return (
       <div className="form">
+        <Message r-if={isShow} message={this.props.count.message}></Message>
         <div className="formItem">
           <div className="label">*公司性质{this.props.count.companyType}</div>
           <div className="content">
@@ -158,7 +161,6 @@ class Form extends React.Component {
           <button onClick={this.submit.bind(this)}>提交</button>
           <button>取消</button>
           <button>重置</button>
-          <span>{this.props.count.message}</span>
         </div>
       </div>
     );

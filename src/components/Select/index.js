@@ -2,13 +2,6 @@ import React from 'react';
 
 class Select extends React.Component {
 
-  constructor(props){
-    super(props);
-    this.state = {
-      value: ''
-    }
-  }
-
   handleChange = e => {
     this.setState({value: e.target.value})
     if (this.props.handleChange) {
@@ -20,7 +13,7 @@ class Select extends React.Component {
     let list = this.props.list;
     return (
       <select
-        value={this.state.value}
+        value={this.props.value}
         onChange={this.handleChange}>
         {list.length > 0 &&
         list.map((item, i) => {

@@ -1,6 +1,7 @@
 import React from 'react';
 import _ from 'lodash';
 import './index.css'
+import { connect } from 'react-redux'
 import Select from '../../components/Select/';
 import Input from '../../components/Input';
 
@@ -8,102 +9,54 @@ class Form extends React.Component {
 
   constructor(props){
     super(props);
-    this.state = {
-      companyList: [
-        {
-          id: 0,
-          name: '选择公司性质'
-        },
-        {
-          id: 1,
-          name: '公司'
-        },
-        {
-          id: 2,
-          name: '个人'
-        }
-      ],
-      provincesList: [
-        {
-          id: '000',
-          name: '不限省份',
-          children: [
-            {
-              id: '001',
-              name: '不限城市',
-            }
-          ]
-        },
-        {
-          id: '100',
-          name: '北京',
-          children: [
-            {
-              id: '101',
-              name: '北京市',
-            }
-          ]
-        },
-        {
-          id: '200',
-          name: '天津',
-          children: [
-            {
-              id: '201',
-              name: '天津市',
-            }
-          ]
-        },
-        {
-          id: '300',
-          name: '河北',
-          children: [
-            {
-              id: '301',
-              name: '石家庄市',
-            },
-            {
-              id: '302',
-              name: '唐山市',
-            },
-            {
-              id: '303',
-              name: '秦皇岛市',
-            }
-          ]
-        },
-      ],
-      cityList: [
-        {
-          id: '001',
-          name: '不限城市',
-        }
-      ]
-    }
 
-    this.handleChange = this.handleChange.bind(this);
+    this.changeCompany = this.changeCompany.bind(this);
+    this.changeProvinces = this.changeProvinces.bind(this);
+    this.changeCity = this.changeCity.bind(this);
   }
 
-  // 下拉框联动
-  handleChange (list, item) {
+  // change公司性质
+  changeCompany (list, item) {
+    this.props.selectCompany(item)
+  }
+  // change省份
+  changeProvinces (list, item) {
     const cityList = _.filter(list, { 'id': item })[0].children
-    this.setState({cityList})
+    this.props.selectProvinces(item)
+    this.changeCity(list, cityList[0].id)
+    this.props.changeProvinces(cityList)
+  }
+  // change城市
+  changeCity (list, item) {
+    this.props.selectCity(item)
   }
 
   render() {
     return (
       <div className="App">
         <div className="formItem">
-          <div className="label">*公司性质</div>
+          <div className="label">*公司性质{this.props.count.companyType}</div>
           <div className="content">
-            <Select list={this.state.companyList}></Select>
+            <Select
+              value={this.props.count.companyType}
+              handleChange={this.changeCompany}
+              list={this.props.count.companyList}>
+            </Select>
           </div>
         </div>
         <div className="formItem">
-          <div className="label">*所在城市</div>
+          <div className="label">*所在城市{this.props.count.provincesType}{this.props.count.cityType}</div>
           <div className="content">
-            <Select handleChange={this.handleChange} list={this.state.provincesList}></Select>
-            <Select list={this.state.cityList}></Select>
+            <Select
+              value={this.props.count.provincesType}
+              handleChange={this.changeProvinces}
+              list={this.props.count.provincesList}>
+            </Select>
+            <Select
+              value={this.props.count.cityType}
+              handleChange={this.changeCity}
+              list={this.props.count.cityList}>
+            </Select>
           </div>
         </div>
         <div className="formItem">
@@ -142,4 +95,19 @@ class Form extends React.Component {
 
 }
 
-export default Form;
+const mapState = state => ({
+  count: state.count,
+})
+
+const mapDispatch = dispatch => ({
+  selectCompany: dispatch.count.selectCompany,
+  selectProvinces: dispatch.count.selectProvinces,
+  selectCity: dispatch.count.selectCity,
+  changeProvinces: dispatch.count.changeProvinces,
+  submit: dispatch.count.submit,
+})
+
+export default connect(
+  mapState,
+  mapDispatch
+)(Form)

@@ -56,6 +56,20 @@ class Form extends React.Component {
   changeNumber (item) {
     this.props.changeNumber(item)
   }
+  // 提交表单
+  submit () {
+    if (this.props.count.companyType === '0') {
+      console.log('公司性质必选')
+      return
+    } else if (this.props.count.provincesType === '000' || this.props.count.cityType === '001') {
+      console.log('所在城市必选')
+      return
+    } else if (this.props.count.phone === '') {
+      console.log('注册手机必填')
+      return
+    }
+    this.props.submit(this.props.count)
+  }
 
   render() {
     return (
@@ -139,6 +153,12 @@ class Form extends React.Component {
               handleChange={this.changeNumber}>
             </Input>
           </div>
+        </div>
+        <div className="formItem">
+          <button onClick={this.submit.bind(this)}>提交</button>
+          <button>取消</button>
+          <button>重置</button>
+          <span>{this.props.count.message}</span>
         </div>
       </div>
     );

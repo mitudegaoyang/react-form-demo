@@ -77,7 +77,8 @@ export const count = {
         id: '001',
         name: '不限城市',
       }
-    ]
+    ],
+    message: ''
   },
   reducers: {
     selectCompany: (state, payload) => {
@@ -144,11 +145,22 @@ export const count = {
   effects: (dispatch) => ({
     async submit(s) {
       // 需要处理数据可在这里进行处理
-      // 已省略
+      const data = {}
+      data.companyType = s.companyType
+      data.provincesType = s.provincesType
+      data.cityType = s.cityType
+      data.apartment = s.apartment
+      if (s.company) {
+        data.company = s.company
+      }
+      data.userName = s.userName
+      data.phone = s.phone
+      data.number = s.number
       await new Promise(resolve => {
         setTimeout(resolve, 1000)
       })
       dispatch.count.message('保存成功')
+      console.log('保存成功')
     },
   })
 }

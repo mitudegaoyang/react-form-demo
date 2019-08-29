@@ -99,6 +99,9 @@ const mapState = state => ({
   count: state.count,
 })
 
+// 多个命名空间需要在引入时说明引入的是哪个命名空间的方法和数据
+// const mapState2Props = ({ alarm: { board, workerLists } }) => ({ board, workerLists });
+
 const mapDispatch = dispatch => ({
   selectCompany: dispatch.count.selectCompany,
   selectProvinces: dispatch.count.selectProvinces,

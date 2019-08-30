@@ -3,15 +3,14 @@ import './index.css'
 
 class Message extends React.Component {
   render() {
-    if (this.props['r-if']) {
-      return (
-        <div className="message">{this.props.message}</div>
-      )
-    } else {
-      return (
-        <div></div>
-      )
-    }
+    return (
+      <React.Fragment>
+      { (this.props['r-if']) ?
+        <div className="message">{this.props.message}</div> :
+        null
+      }
+      </React.Fragment>
+    )
   }
 }
 

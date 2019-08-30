@@ -147,17 +147,18 @@ class Form extends React.Component {
             </Input>
           </div>
         </div>
-        <div className="formItem" style={{display: (this.props.count.companyType === '1') ? 'block' : 'none'}}>
-          <div className="label">公司全称{this.props.count.company}</div>
-          <div className="content">
-            <Input
-              value={this.props.count.company}
-              type={'text'}
-              placeholder={'输入公司全称'}
-              handleChange={this.changeCompany}>
-            </Input>
-          </div>
-        </div>
+        {(this.props.count.companyType === '1') ?
+          <div className="formItem">
+            <div className="label">公司全称{this.props.count.company}</div>
+            <div className="content">
+              <Input
+                value={this.props.count.company}
+                type={'text'}
+                placeholder={'输入公司全称'}
+                handleChange={this.changeCompany}>
+              </Input>
+            </div>
+          </div> : null}
         <div className="formItem">
           <div className="label">联系人姓名{this.props.count.userName}</div>
           <div className="content">

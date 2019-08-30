@@ -11,6 +11,12 @@ class Form extends React.Component {
   constructor(props){
     super(props);
 
+    this.state = {
+      companyRequired: false,
+      provincesRequired: false,
+      phoneRequired: false
+    }
+
     this.changeCompanyType = this.changeCompanyType.bind(this);
     this.changeProvinces = this.changeProvinces.bind(this);
     this.changeCity = this.changeCity.bind(this);
@@ -77,13 +83,27 @@ class Form extends React.Component {
    * 提交表单
    */
   submit () {
+    this.setState({
+      companyRequired: false,
+      provincesRequired: false,
+      phoneRequired: false,
+    })
     if (this.props.count.companyType === '0') {
       console.log('公司性质必选')
+      this.setState({
+        companyRequired: true
+      })
       return
     } else if (this.props.count.provincesType === '000' || this.props.count.cityType === '001') {
       console.log('所在城市必选')
+      this.setState({
+        provincesRequired: true
+      })
       return
     } else if (this.props.count.phone === '') {
+      this.setState({
+        phoneRequired: true
+      })
       console.log('注册手机必填')
       return
     }
@@ -112,7 +132,11 @@ class Form extends React.Component {
       <div className="form">
         <Message r-if={isShow} message={this.props.count.message}></Message>
         <div className="formItem">
-          <div className="label">*公司性质{this.props.count.companyType}</div>
+          <div
+            className="label"
+            style={{color: this.state.companyRequired ? 'red' : 'black'}}>
+            *公司性质{this.props.count.companyType}
+          </div>
           <div className="content">
             <Select
               value={this.props.count.companyType}
@@ -122,7 +146,11 @@ class Form extends React.Component {
           </div>
         </div>
         <div className="formItem">
-          <div className="label">*所在城市{this.props.count.provincesType}{this.props.count.cityType}</div>
+          <div
+            className="label"
+            style={{color: this.state.provincesRequired ? 'red' : 'black'}}>
+            *所在城市{this.props.count.provincesType}{this.props.count.cityType}
+          </div>
           <div className="content">
             <Select
               value={this.props.count.provincesType}
@@ -171,7 +199,11 @@ class Form extends React.Component {
           </div>
         </div>
         <div className="formItem">
-          <div className="label">*注册手机{this.props.count.phone}</div>
+          <div
+            className="label"
+            style={{color: this.state.phoneRequired ? 'red' : 'black'}}>
+            *注册手机{this.props.count.phone}
+          </div>
           <div className="content">
             <Input
               value={this.props.count.phone}

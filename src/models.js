@@ -156,6 +156,7 @@ export const count = {
       data.userName = s.userName
       data.phone = s.phone
       data.number = s.number
+      console.log('提交中')
       await new Promise(resolve => {
         setTimeout(resolve, 1000)
       })

@@ -2,6 +2,7 @@ import React from 'react';
 import _ from 'lodash';
 import './index.css'
 import { connect } from 'react-redux'
+import { withRouter } from "react-router-dom";
 import Select from '../../components/Select/';
 import Input from '../../components/Input';
 import Message from '../../components/Message';
@@ -125,8 +126,16 @@ class Form extends React.Component {
     this.props.changePhone('')
     this.props.changeNumber('')
   }
+  /**
+   * 返回首页
+   */
+  goBack () {
+    console.log('返回首页')
+    // () => history.push("/")
+  }
 
   render() {
+    const { history } = this.props;
     let isShow = this.props.count.message !== ''
     return (
       <div className="form">
@@ -226,8 +235,9 @@ class Form extends React.Component {
         </div>
         <div className="formItem">
           <button onClick={this.submit.bind(this)}>提交</button>
-          <button>取消</button>
           <button onClick={this.clear.bind(this)}>重置</button>
+          {/*<button onClick={this.goBack.bind(this)}>取消</button>*/}
+          <button onClick={() => history.push("/")}>取消</button>
         </div>
       </div>
     );
@@ -255,7 +265,7 @@ const mapDispatch = dispatch => ({
   submit: dispatch.count.submit,
 })
 
-export default connect(
+export default withRouter(connect(
   mapState,
   mapDispatch
-)(Form)
+)(Form))

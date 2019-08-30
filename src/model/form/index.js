@@ -131,7 +131,7 @@ class Form extends React.Component {
    */
   goBack () {
     console.log('返回首页')
-    // () => history.push("/")
+    this.props.history.push("/")
   }
 
   render() {
@@ -236,8 +236,7 @@ class Form extends React.Component {
         <div className="formItem">
           <button onClick={this.submit.bind(this)}>提交</button>
           <button onClick={this.clear.bind(this)}>重置</button>
-          {/*<button onClick={this.goBack.bind(this)}>取消</button>*/}
-          <button onClick={() => history.push("/")}>取消</button>
+          <button onClick={this.goBack.bind(this)}>取消</button>
         </div>
       </div>
     );

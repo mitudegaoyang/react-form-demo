@@ -21,43 +21,61 @@ class Form extends React.Component {
     this.changeNumber = this.changeNumber.bind(this);
   }
 
-  // change公司性质
+  /**
+   * change公司性质
+   */
   changeCompanyType (list, item) {
     this.props.selectCompany(item)
     this.props.changeCompany('')
   }
-  // change省份
+  /**
+   * change省份
+   */
   changeProvinces (list, item) {
     const cityList = _.filter(list, { 'id': item })[0].children
     this.props.selectProvinces(item)
     this.changeCity(list, cityList[0].id)
     this.props.changeProvinces(cityList)
   }
-  // change城市
+  /**
+   * change城市
+   */
   changeCity (list, item) {
     this.props.selectCity(item)
   }
-  // change公寓名称
+  /**
+   * change公寓名称
+   */
   changeApartment (item) {
     this.props.changeApartment(item)
   }
-  // change公司全称
+  /**
+   * change公司全称
+   */
   changeCompany (item) {
     this.props.changeCompany(item)
   }
-  // change联系人姓名
+  /**
+   * change联系人姓名
+   */
   changeUserName (item) {
     this.props.changeUserName(item)
   }
-  // change注册手机
+  /**
+   * change注册手机
+   */
   changePhone (item) {
     this.props.changePhone(item)
   }
-  // change运营房源量
+  /**
+   * change运营房源量
+   */
   changeNumber (item) {
     this.props.changeNumber(item)
   }
-  // 提交表单
+  /**
+   * 提交表单
+   */
   submit () {
     if (this.props.count.companyType === '0') {
       console.log('公司性质必选')
@@ -70,6 +88,22 @@ class Form extends React.Component {
       return
     }
     this.props.submit(this.props.count)
+  }
+  /**
+   * 清空表单
+   */
+  clear () {
+    this.props.selectCompany('0')
+    this.props.selectProvinces('000')
+    const list = this.props.count.provincesList
+    const cityList = list[0].children
+    this.changeCity(list, cityList[0].id)
+    this.props.changeProvinces(cityList)
+    this.props.changeApartment('')
+    this.props.changeCompany('')
+    this.props.changeUserName('')
+    this.props.changePhone('')
+    this.props.changeNumber('')
   }
 
   render() {
@@ -160,7 +194,7 @@ class Form extends React.Component {
         <div className="formItem">
           <button onClick={this.submit.bind(this)}>提交</button>
           <button>取消</button>
-          <button>重置</button>
+          <button onClick={this.clear.bind(this)}>重置</button>
         </div>
       </div>
     );

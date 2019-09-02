@@ -1,0 +1,16 @@
+.formItem {
+    margin: 10px;
+}
+.formItem:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+.formItem .label {
+    float: left;
+    width: 200px;
+}
+.formItem .content {
+    float: left;
+    width: 200px;
+}

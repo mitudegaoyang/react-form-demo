@@ -10,7 +10,7 @@
 
 ### 概述
 
-本项目为react的form表单demo，用到了react、react-dom、react-redux、rematch、lodash等技术框架
+本项目为react的form表单demo，用到了react、react-dom、react-redux、react-router-dom、rematch、lodash等技术框架
 
 ### 使用
 
@@ -56,7 +56,10 @@ react-form-demo
 │   │   ├── Message         # 消息弹框组件
 │   │   └── Select          # 下拉框组件
 │   ├── model               # 模块目录
-│   │   └── form            # 表单模块
+│   │   ├── app             # app模块
+│   │   ├── dashboard       # 首页模块
+│   │   ├── form            # 表单模块
+│   │   └── list            # 列表模块
 │   ├── index.js            # 项目的核心文件
 │   └── models.js           # rematch状态存储
 ├── .xxxx                   # 各类配置文件(包括语法配置，git配置等)
@@ -71,6 +74,7 @@ react-form-demo
 * 下拉框联动选择
 * 仿v-if、v-show实现联动显隐
 * 保存表单前判断、重置表单
+* 保存成功添加message提示
 * 保存成功添加message提示
 
 ### 参考资料

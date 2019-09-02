@@ -8,9 +8,10 @@ import Form from "./model/form";
 import List from "./model/list";
 import List1 from "./model/list/listChild";
 import List2 from "./model/list/listChild";
-import Dashboard from './model/dashboard'
-import App from './model/app'
-import * as models from './models'
+import Dashboard from './model/dashboard';
+import App from './model/app';
+import * as models from './models';
+import './index.less'
 
 const store = init({
   models,

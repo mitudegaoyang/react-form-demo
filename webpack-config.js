@@ -5,7 +5,7 @@ let plu = [];
 plu.push(
   new HtmlWebpackPlugin({
     template: './public/index.html',
-    chunks: ['vendor', 'index.js', 'utils']  //  引入需要的chunk
+    chunks: ['vendor', 'index.css.js', 'utils']  //  引入需要的chunk
   }),
   // 拆分后会把css文件放到dist目录下的css/style.css
   new ExtractTextWebpackPlugin('css/style.css'),

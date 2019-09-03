@@ -11,7 +11,7 @@ import List2 from "./model/list/listChild";
 import Dashboard from './model/dashboard';
 import App from './model/app';
 import * as models from './models';
-import './index.less'
+import './styles/index.css'
 
 const store = init({
   models,

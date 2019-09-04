@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import BreadcrumbBar from "../../components/BreadcrumbBar";
-import {Provider} from "react-redux";
 
 class Dashboard extends React.Component {
 
@@ -11,7 +10,7 @@ class Dashboard extends React.Component {
       <React.Fragment>
         <BreadcrumbBar></BreadcrumbBar>
         <div className="form">
-          <Link to="/app">App</Link>{' '}
+          <Link to="/login">Login</Link>{' '}
           <Link to="/from">From</Link>{' '}
           <Link to="/list">List</Link>{' '}
           <Link to="/list/list1">List1</Link>{' '}

@@ -9,7 +9,7 @@ import List from "./model/list";
 import List1 from "./model/list/listChild";
 import List2 from "./model/list/listChild";
 import Dashboard from './model/dashboard';
-import App from './model/app';
+import Login from './model/login';
 import * as models from './models';
 import './styles/index.css'
 
@@ -22,7 +22,7 @@ ReactDOM.render(
     <Router>
       <Switch>
         <Route exact path="/" component={Dashboard}/>
-        <Route path='/app' component={App} />
+        <Route path='/login' component={Login} />
         <Route path='/from' component={Form} />
         <Route exact path='/list' component={List} />
         <Route path='/list/list1' component={List1} />

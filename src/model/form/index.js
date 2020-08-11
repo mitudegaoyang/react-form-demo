@@ -9,7 +9,7 @@ import Message from '../../components/Message';
 
 class Form extends React.Component {
 
-  constructor(props){
+  constructor(props) {
     super(props);
 
     this.state = {
@@ -31,14 +31,14 @@ class Form extends React.Component {
   /**
    * change公司性质
    */
-  changeCompanyType (list, item) {
+  changeCompanyType(list, item) {
     this.props.selectCompany(item)
     this.props.changeCompany('')
   }
   /**
    * change省份
    */
-  changeProvinces (list, item) {
+  changeProvinces(list, item) {
     const cityList = _.filter(list, { 'id': item })[0].children
     this.props.selectProvinces(item)
     this.changeCity(list, cityList[0].id)
@@ -47,43 +47,43 @@ class Form extends React.Component {
   /**
    * change城市
    */
-  changeCity (list, item) {
+  changeCity(list, item) {
     this.props.selectCity(item)
   }
   /**
    * change公寓名称
    */
-  changeApartment (item) {
+  changeApartment(item) {
     this.props.changeApartment(item)
   }
   /**
    * change公司全称
    */
-  changeCompany (item) {
+  changeCompany(item) {
     this.props.changeCompany(item)
   }
   /**
    * change联系人姓名
    */
-  changeUserName (item) {
+  changeUserName(item) {
     this.props.changeUserName(item)
   }
   /**
    * change注册手机
    */
-  changePhone (item) {
+  changePhone(item) {
     this.props.changePhone(item)
   }
   /**
    * change运营房源量
    */
-  changeNumber (item) {
+  changeNumber(item) {
     this.props.changeNumber(item)
   }
   /**
    * 提交表单
    */
-  submit () {
+  submit() {
     this.setState({
       companyRequired: false,
       provincesRequired: false,
@@ -113,7 +113,7 @@ class Form extends React.Component {
   /**
    * 清空表单
    */
-  clear () {
+  clear() {
     this.props.selectCompany('0')
     this.props.selectProvinces('000')
     const list = this.props.count.provincesList
@@ -129,13 +129,13 @@ class Form extends React.Component {
   /**
    * 返回首页
    */
-  goBack () {
+  goBack() {
+    const { history } = this.props;
     console.log('返回首页')
-    this.props.history.push("/")
+    history.push("/")
   }
 
   render() {
-    const { history } = this.props;
     let isShow = this.props.count.message !== ''
     return (
       <div className="form">
@@ -143,7 +143,7 @@ class Form extends React.Component {
         <div className="formItem">
           <div
             className="label"
-            style={{color: this.state.companyRequired ? 'red' : 'black'}}>
+            style={{ color: this.state.companyRequired ? 'red' : 'black' }}>
             *公司性质{this.props.count.companyType}
           </div>
           <div className="content">
@@ -157,7 +157,7 @@ class Form extends React.Component {
         <div className="formItem">
           <div
             className="label"
-            style={{color: this.state.provincesRequired ? 'red' : 'black'}}>
+            style={{ color: this.state.provincesRequired ? 'red' : 'black' }}>
             *所在城市{this.props.count.provincesType}{this.props.count.cityType}
           </div>
           <div className="content">
@@ -210,7 +210,7 @@ class Form extends React.Component {
         <div className="formItem">
           <div
             className="label"
-            style={{color: this.state.phoneRequired ? 'red' : 'black'}}>
+            style={{ color: this.state.phoneRequired ? 'red' : 'black' }}>
             *注册手机{this.props.count.phone}
           </div>
           <div className="content">

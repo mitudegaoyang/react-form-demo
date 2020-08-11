@@ -2,10 +2,10 @@
 
 作者：高天阳
 
-```
+```text
 更改历史
 
-* 2019-8-29	高天阳	编写README文档
+* 2019-8-29 高天阳  编写README文档
 ```
 
 ### 概述
@@ -16,36 +16,39 @@
 
 #### 安装
 
-```
+```shell
 # 克隆项目
 $ git clone git@github.com:mitudegaoyang/react-form-demo.git
 
 # 安装依赖
-$ npm install
+$ yarn
+
+# 安装依赖
+$ yarn upgrade
 
 ```
 
-####  常用指令
+#### 常用指令
 
-```
+```shell
 # 本地预览
-$ npm start
+$ yarn start
 
 # 测试项目
-$ npm test
+$ yarn test
 
 # 打包项目
-$ npm run build
+$ yarn run build
 
 # 测试项目
-$ npm run eject
+$ yarn3 run eject
 ```
 
 ### 开发
 
 #### 目录结构
 
-```
+```text
 react-form-demo
 ├── public                  # 项目入口
 ├── dist                    # 打包文件

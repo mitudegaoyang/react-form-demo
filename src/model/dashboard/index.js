@@ -12,9 +12,7 @@ class Dashboard extends React.Component {
         <div className="form">
           <Link to="/login">Login</Link>{' '}
           <Link to="/from">From</Link>{' '}
-          <Link to="/list">List</Link>{' '}
-          <Link to="/list/list1">List1</Link>{' '}
-          <Link to="/list/list2">List2</Link>{' '}
+          <Link to="/mock">Mock</Link>{' '}
           hello dashboard
         </div>
       </React.Fragment>

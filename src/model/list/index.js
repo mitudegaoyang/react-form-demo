@@ -1,16 +1,24 @@
 import React from 'react';
-import { withRouter } from "react-router-dom";
+import { Switch, Redirect, Route, withRouter } from "react-router-dom";
+import List from "./listChild";
+import ListDetail from "./listChild/listDetail";
 
-class List extends React.Component {
+class ListContainer extends React.Component {
 
   render() {
 
-    const { history } = this.props;
-
     return (
       <div className="form">
-        <button onClick={() => history.push("/")}>返回首页</button>
-        hello List
+        <h1>hello List</h1>
+        <Switch>
+          <Redirect
+            exact={true}
+            from={'/mock'}
+            to={'/mock/list'}
+          />
+          <Route path='/mock/list' component={List} />
+          <Route path='/mock/info/:id' component={ListDetail} />
+        </Switch>
       </div>
     );
   }
@@ -18,4 +26,4 @@ class List extends React.Component {
 }
 
 
-export default withRouter(List)
+export default withRouter(ListContainer)
